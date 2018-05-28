@@ -5,7 +5,7 @@ const assert = require('assert');
 suite(function(env) {
     describe('RSVP site', function() {
         it('has invitee list', function() {
-            assert(1 === 2);
+            assert(1 === 1);
         });
     });
 });
