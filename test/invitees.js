@@ -33,6 +33,31 @@ suite(function(env) {
             assert(elements.length > 0);
         });
 
+        it('loads existing invitations', async function() {
+            // Instead of looking for a particular invitee list item, let's find the
+            // whole invited list and ensure it contains the name of the invitee
+            // we're looking for. This element should get found as soon as the page
+            // loads, because it's present even before the AJAX request completes.
+            let list = await driver.findElement(page.locators.invitedList);
+            // Now we need to wait for that AJAX call. We'll do that with an explicit
+            // wait. We make a call to the driver.wait() method.
+            // We need to give the wait() method the conditions that will cause it
+            // to stop waiting. Remember, up at the top of this file, we require
+            // the "until" object. That object has a method called elementLocated()
+            // that will stop the wait as soon as the specified locator is present
+            // in the document. So we'll have it look for our "invitees" locator,
+            // which will only be present after the AJAX request completes successfully.
+            await driver.wait(
+                until.elementLocated(page.locators.invitees)
+            );
+            // Once the explicit wait is resolved, we can be confident our invitees
+            // have been loaded into the page. If we get all the text from our list
+            // element, it should include the name of the invitee we're looking for.
+            let text = await list.getText();
+            // We end our test by asserting that the text includes the name.
+            assert(text.includes("Craig Dennis"));
+        });
+
         after(async function() {
             driver.quit();
         });
