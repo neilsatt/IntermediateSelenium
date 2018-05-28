@@ -1,0 +1,15 @@
+{
+  "name": "intermediate-selenium-webdriver",
+  "version": "0.0.0",
+  "description": "Course for teaching waits, user actions, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Jay McGavren",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "mocha": "^5.1.1",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}

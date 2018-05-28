@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo app</title>
+  </head>
+  <body>
+    <div class="controls">
+      <button>Cancel</button>
+      <button>Save</button>
+      <span id="status"></span>
+    </div>
+    <script type="text/javascript">
+      var button = document.getElementsByTagName('button')[1];
+      button.addEventListener('click', function(e) {
+        var span = document.getElementById('status');
+        span.innerHTML = "Saved!";
+      });
+    </script>
+  </body>
+</html>
