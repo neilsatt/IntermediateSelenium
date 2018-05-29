@@ -1,0 +1,23 @@
+npm install selenium-webdriver@3
+
+Chrome Driver - https://www.youtube.com/watch?v=dz59GsdvUF8
+
+
+Chrome Browser closing immediately after running command
+
+
+
+Running Selenium in a terminal (basic)
+
+- Make sure you are in the selenium folder
+
+- Start Node
+
+const selenium = require('selenium-webdriver');
+
+const By = selenium.By;
+
+const driver = new selenium.Builder().forBrowser('chrome').build();
+
+driver.get('http://automationpractice.com/index.php');
+
